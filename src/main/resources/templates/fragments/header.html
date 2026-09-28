@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+
+    <header th:fragment="header">
+
+        <h3>UTE SHOP</h3>
+
+        <div sec:authorize="isAuthenticated()">
+
+            Xin chào:
+            <strong sec:authentication="name">
+                user
+            </strong>
+
+            <form th:action="@{/logout}" method="post" style="display:inline">
+
+                <button type="submit">
+                    Đăng xuất
+                </button>
+
+            </form>
+
+        </div>
+
+    </header>
+
+</body>
+
+</html>
